@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mx-auto mt-10">
         <div class="grid grid-cols-2 mb-3">
-            <h1 style="font-size: 30px; font-weight: bold;">Tambah Data Jurusan</h1>
+            <h1 style="font-size: 30px; font-weight: bold;">Tambah Data User</h1>
         </div>
         <div class="max-w-xl rounded overflow-hidden shadow-lg bg-white mt-2">
             <div class="px-5 mt-5">
@@ -11,7 +11,7 @@
                     @csrf
                      <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">
-                            name
+                            name:
                         </label>
                         <input
                             class="@error('name') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -22,7 +22,7 @@
                     </div> 
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">
-                            email
+                            email:
                         </label>
                         <input
                             class="@error('email') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -33,7 +33,7 @@
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">
-                           password
+                           password:
                         </label>
                         <input
                             class="@error('password') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -44,9 +44,7 @@
                         @enderror
                     </div>
                     <div class="form-group mt-4">
-                        <button type="submit"
-                            class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-5 rounded float-right">
-                            Simpan </button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                     <br><br>
                 </form>
