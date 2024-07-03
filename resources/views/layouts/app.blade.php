@@ -51,11 +51,15 @@
                         @else
 
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ url('home') }}">Dashboard</a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ url('user') }}">Data User</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('laporan') }}">Laporan</a>
+                                <a class="nav-link" href="{{ url('laporans') }}">Laporan</a>
                             </li>
 
                             <li class="nav-item dropdown">

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Data User</h2>
+        <h2>User</h2>
         <a href="{{ url('user/create') }}" class="btn btn-primary">Tambah Data</a>
     </div>
     <div class="table-responsive">
