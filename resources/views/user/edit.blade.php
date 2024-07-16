@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mx-auto mt-10">
-    <div class="grid grid-cols-2 mb-3">
-        <h1 style="font-size: 30px; font-weight: bold;">Edit User</h1>
-    </div>
-    <div class="max-w-xl rounded overflow-hidden shadow-lg bg-white mt-2">
-        <div class="px-5 mt-5">
+<div class="container py-5">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Edit User</h4>
+        </div>
+        <div class="card-body">
             @if (session('success'))
                 <div class="alert alert-success" role="alert">
                     {{ session('success') }}
@@ -15,20 +15,28 @@
             <form method="POST" action="{{ route('user.update', $user->id) }}">
                 @csrf
                 @method('PUT')
-
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
-                    <input id="name" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $user->name }}" required>
+                    @error('name')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
-
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-                    <input id="email" type="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email" value="{{ $user->email }}" required autocomplete="email" autofocus>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ $user->email }}" required>
+                    @error('email')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
-
-                <div class="form-group mt-4">
-                    <button type="submit" class="btn btn-primary">Update User</button>
+                <div class="mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <input type="text" class="form-control @error('role_id') is-invalid @enderror" id="role_id" name="role_id" value="{{ $user->role_id }}" required>
+                    @error('role_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
+                <button type="submit" class="btn btn-primary">Update User</button>
             </form>
         </div>
     </div>

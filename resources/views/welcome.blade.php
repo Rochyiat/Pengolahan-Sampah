@@ -1,69 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengolahan Sampah</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-image: url('/images/plastic-waste-7617451.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-        }
-        .content {
-            background: rgba(255, 255, 255, 0.8); /* Transparan putih untuk konten agar teks mudah dibaca */
-            padding: 20px;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Pengolahan Sampah</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+@extends('layouts.app')
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    @if (Route::has('login'))
-                        @auth
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/home') }}">Dashboard</a>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Login</a>
-                            </li>
+@section('content')
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4">Selamat Datang di Aku Sampah Bandung</h1>
+        <p class="lead">Solusi Pengelolaan Sampah untuk Kota Bandung</p>
+        <a href="#lanjutan" class="btn btn-primary btn-lg mt-3">Pelajari Lebih Lanjut</a>
+    </div>
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">Register</a>
-                                </li>
-                            @endif
-                        @endauth
-                    @endif
-                </ul>
+    <div id="lanjutan" class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-recycle fa-3x mb-3 text-success"></i>
+                    <h5 class="card-title">Pengelolaan Sampah Organik</h5>
+                    <p class="card-text">Kami menyediakan solusi untuk pengelolaan sampah organik yang ramah lingkungan.</p>
+                </div>
             </div>
         </div>
-    </nav>
-
-    <div class="container mt-5">
-        <div class="jumbotron">
-            <h1 class="display-4">Selamat Datang di Web Pengolahan Sampah</h1>
-            <p class="lead">Ini adalah platform untuk mengelola dan mendaur ulang sampah secara efisien.</p>
-            <hr class="my-4">
-            <p>Dengan menggunakan web ini, Anda dapat memantau, mengelola, dan memproses sampah dengan cara yang ramah lingkungan.</p>
-            <a class="btn btn-primary btn-lg" href="{{ url('/learn-more') }}" role="button">Pelajari Lebih Lanjut</a>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-trash-alt fa-3x mb-3 text-danger"></i>
+                    <h5 class="card-title">Pengelolaan Sampah Anorganik</h5>
+                    <p class="card-text">Sampah anorganik dikelola dengan metode daur ulang yang efisien dan efektif.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-biohazard fa-3x mb-3 text-warning"></i>
+                    <h5 class="card-title">Pengelolaan Sampah B3</h5>
+                    <p class="card-text">Penanganan khusus untuk sampah Bahan Berbahaya dan Beracun (B3) dengan standar keamanan tinggi.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <div class="text-center mt-5">
+        <h2>Kenapa Memilih Kami?</h2>
+        <p class="lead">Kami berdedikasi untuk menciptakan lingkungan yang bersih dan sehat melalui pengelolaan sampah yang terintegrasi.</p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-globe fa-3x mb-3"></i>
+                        <h5 class="card-title">Ramah Lingkungan</h5>
+                        <p class="card-text">Kami menggunakan teknologi dan metode yang ramah lingkungan dalam pengelolaan sampah.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-handshake fa-3x mb-3"></i>
+                        <h5 class="card-title">Mitra Terpercaya</h5>
+                        <p class="card-text">Kami bekerja sama dengan berbagai mitra untuk memastikan proses pengelolaan sampah yang efektif.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-users fa-3x mb-3"></i>
+                        <h5 class="card-title">Komunitas Peduli Sampah</h5>
+                        <p class="card-text">Bergabunglah dengan komunitas kami untuk bersama-sama menjaga kebersihan Kota Bandung.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <h2>Hubungi Kami</h2>
+        <p class="lead">Untuk informasi lebih lanjut, silakan hubungi kami melalui kontak di bawah ini.</p>
+        <a href="mailto:info@akusampahbandung.com" class="btn btn-outline-primary btn-lg">Email Kami</a>
+    </div>
+</div>
+@endsection

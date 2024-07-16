@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -29,9 +29,19 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
+                    @auth
+                        <ul class="navbar-nav me-auto">
+                            {{-- <li class="nav-item">
+                                <a class="nav-link" href="{{ url('home') }}">Dashboard</a>
+                            </li> --}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('user') }}">Kelola User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('laporans') }}">Laporan</a>
+                            </li>
+                        </ul>
+                    @endauth
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -49,19 +59,6 @@
                                 </li>
                             @endif
                         @else
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('home') }}">Dashboard</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('user') }}">Data User</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('laporans') }}">Laporan</a>
-                            </li>
-
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -85,9 +82,31 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 container">
+            @yield('breadcrumbs')
             @yield('content')
         </main>
+
+        <footer class="bg-dark text-white text-center py-3">
+            &copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}. Kelompok 6.
+        </footer>
     </div>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </body>
 </html>

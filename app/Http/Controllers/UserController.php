@@ -28,21 +28,17 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'role_id' => 'required|integer|exists:roles,id',
+            'role' => 'required|exists:roles,id',
         ]);
 
-        try {
-            $user = new User();
-            $user->name = $validatedData['name'];
-            $user->email = $validatedData['email'];
-            $user->password = Hash::make($validatedData['password']);
-            $user->role_id = $validatedData['role_id'];
-            $user->save();
+        $user = new User();
+        $user->name = $validatedData['name'];
+        $user->email = $validatedData['email'];
+        $user->password = Hash::make($validatedData['password']);
+        $user->role_id = $validatedData['role']; // Asumsi role_id adalah foreign key di tabel users
+        $user->save();
 
-            return redirect()->route('user.index')->with('success', 'User created successfully.');
-        } catch (Exception $e) {
-            return redirect()->route('user.index')->with('error', 'Failed to create user: ' . $e->getMessage());
-        }
+        return redirect()->route('user.index')->with('success', 'User berhasil ditambahkan.');
     }
 
     public function show($id)

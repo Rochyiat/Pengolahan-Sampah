@@ -22,9 +22,16 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        $laporans = Laporan::all();
-        return view('laporans.create', compact('laporans'));
+        $kecamatans = [
+            'Andir', 'Astana Anyar', 'Antapani', 'Arcamanik', 'Babakan Ciparay', 'Bandung Kidul', 'Bandung Kulon', 
+            'Bandung Wetan', 'Batununggal', 'Bojongloa Kaler', 'Bojongloa Kidul', 'Buahbatu', 'Cibeunying Kaler', 
+            'Cibeunying Kidul', 'Cibiru', 'Cicendo', 'Cidadap', 'Cinambo', 'Coblong', 'Gedebage', 'Kiaracondong', 
+            'Lengkong', 'Mandalajati', 'Panyileukan', 'Rancasari', 'Regol', 'Sukajadi', 'Sukasari', 'Sumur Bandung', 
+            'Ujungberung'
+        ];
+        return view('laporans.create', compact('kecamatans'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +41,7 @@ class LaporanController extends Controller
         $request->validate([
             'tanggal' => 'required|date',
             'lokasi' => 'required|string|max:255',
-            'jenis_sampah' => 'required|string|in:Organik,Non Organik,Bahaya',
+            'jenis_sampah' => 'required|string|max:255',
         ]);
 
         Laporan::create([
@@ -43,8 +50,9 @@ class LaporanController extends Controller
             'jenis_sampah' => $request->jenis_sampah,
         ]);
 
-        return redirect()->route('laporans.index')->with('success', 'Laporan berhasil dibuat');
+        return redirect()->route('laporans.index')->with('success', 'Laporan berhasil ditambahkan.');
     }
+
 
     /**
      * Display the specified resource.
@@ -57,40 +65,46 @@ class LaporanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Laporan $laporan)
     {
-        $laporan = Laporan::findOrFail($id);
-        return view('laporans.edit', compact('laporan'));
+        $kecamatans = [
+            'Andir', 'Astana Anyar', 'Antapani', 'Arcamanik', 'Babakan Ciparay', 'Bandung Kidul', 'Bandung Kulon', 
+            'Bandung Wetan', 'Batununggal', 'Bojongloa Kaler', 'Bojongloa Kidul', 'Buahbatu', 'Cibeunying Kaler', 
+            'Cibeunying Kidul', 'Cibiru', 'Cicendo', 'Cidadap', 'Cinambo', 'Coblong', 'Gedebage', 'Kiaracondong', 
+            'Lengkong', 'Mandalajati', 'Panyileukan', 'Rancasari', 'Regol', 'Sukajadi', 'Sukasari', 'Sumur Bandung', 
+            'Ujungberung'
+        ];
+        return view('laporans.edit', compact('laporan', 'kecamatans'));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
-{
-    $request->validate([
-        'tanggal' => 'required|date',
-        'lokasi' => 'required|string|max:255',
-        'jenis_sampah' => 'required|string|in:Organik,Non Organik,Bahaya',
-    ]);
+    public function update(Request $request, Laporan $laporan)
+    {
+        $request->validate([
+            'tanggal' => 'required|date',
+            'lokasi' => 'required|string|max:255',
+            'jenis_sampah' => 'required|string|max:255',
+        ]);
 
-    $laporan = Laporan::findOrFail($id);
-    $laporan->tanggal = $request->input('tanggal');
-    $laporan->lokasi = $request->input('lokasi');
-    $laporan->jenis_sampah = $request->input('jenis_sampah');
-    $laporan->save();
+        $laporan->update([
+            'tanggal' => $request->tanggal,
+            'lokasi' => $request->lokasi,
+            'jenis_sampah' => $request->jenis_sampah,
+        ]);
 
-    return redirect()->route('laporans.index')->with('success', 'Laporan berhasil diperbarui');
-}
+        return redirect()->route('laporans.index')->with('success', 'Laporan berhasil diperbarui.');
+    }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Laporan $laporan)
     {
-        $laporan = Laporan::findOrFail($id);
         $laporan->delete();
-    
-        return redirect()->route('laporans.index')->with('success', 'Data berhasil dihapus.');
+        return redirect()->route('laporans.index')->with('success', 'Laporan berhasil dihapus.');
     }
 }
