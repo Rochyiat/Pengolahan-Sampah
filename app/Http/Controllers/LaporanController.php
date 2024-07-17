@@ -22,14 +22,8 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        $kecamatans = [
-            'Andir', 'Astana Anyar', 'Antapani', 'Arcamanik', 'Babakan Ciparay', 'Bandung Kidul', 'Bandung Kulon', 
-            'Bandung Wetan', 'Batununggal', 'Bojongloa Kaler', 'Bojongloa Kidul', 'Buahbatu', 'Cibeunying Kaler', 
-            'Cibeunying Kidul', 'Cibiru', 'Cicendo', 'Cidadap', 'Cinambo', 'Coblong', 'Gedebage', 'Kiaracondong', 
-            'Lengkong', 'Mandalajati', 'Panyileukan', 'Rancasari', 'Regol', 'Sukajadi', 'Sukasari', 'Sumur Bandung', 
-            'Ujungberung'
-        ];
-        return view('laporans.create', compact('kecamatans'));
+        
+        return view('laporans.create');
     }
 
 
@@ -40,13 +34,15 @@ class LaporanController extends Controller
     {
         $request->validate([
             'tanggal' => 'required|date',
-            'lokasi' => 'required|string|max:255',
+           
+            'iframe' => 'required|',
             'jenis_sampah' => 'required|string|max:255',
         ]);
 
         Laporan::create([
             'tanggal' => $request->tanggal,
-            'lokasi' => $request->lokasi,
+           
+            'iframe' => $request->iframe,
             'jenis_sampah' => $request->jenis_sampah,
         ]);
 
@@ -65,16 +61,10 @@ class LaporanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Laporan $laporan)
+    public function edit(string $id)
     {
-        $kecamatans = [
-            'Andir', 'Astana Anyar', 'Antapani', 'Arcamanik', 'Babakan Ciparay', 'Bandung Kidul', 'Bandung Kulon', 
-            'Bandung Wetan', 'Batununggal', 'Bojongloa Kaler', 'Bojongloa Kidul', 'Buahbatu', 'Cibeunying Kaler', 
-            'Cibeunying Kidul', 'Cibiru', 'Cicendo', 'Cidadap', 'Cinambo', 'Coblong', 'Gedebage', 'Kiaracondong', 
-            'Lengkong', 'Mandalajati', 'Panyileukan', 'Rancasari', 'Regol', 'Sukajadi', 'Sukasari', 'Sumur Bandung', 
-            'Ujungberung'
-        ];
-        return view('laporans.edit', compact('laporan', 'kecamatans'));
+        $laporan = Laporan::findOrFail($id);
+        return view('laporans.edit', compact('laporan'));
     }
 
 
@@ -85,13 +75,13 @@ class LaporanController extends Controller
     {
         $request->validate([
             'tanggal' => 'required|date',
-            'lokasi' => 'required|string|max:255',
+            'iframe' => 'required|',
             'jenis_sampah' => 'required|string|max:255',
         ]);
 
         $laporan->update([
             'tanggal' => $request->tanggal,
-            'lokasi' => $request->lokasi,
+            'iframe' => $request->iframe,
             'jenis_sampah' => $request->jenis_sampah,
         ]);
 

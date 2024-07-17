@@ -15,12 +15,8 @@
                         <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{ $laporan->tanggal }}" readonly>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="lokasi" class="form-label">Lokasi:</label>
-                        <select class="form-control" id="lokasi" name="lokasi">
-                            @foreach($kecamatans as $kecamatan)
-                                <option value="{{ $kecamatan }}" {{ $laporan->lokasi == $kecamatan ? 'selected' : '' }}>{{ $kecamatan }}</option>
-                            @endforeach
-                        </select>
+                        <label for="jenis_sampah" class="form-label">Lokasi:</label>
+                        <input type="text" name="iframe" class="form-control">
                     </div>
                     <div class="form-group mb-3">
                         <label for="jenis_sampah" class="form-label">Jenis Sampah:</label>

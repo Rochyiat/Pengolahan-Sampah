@@ -12,15 +12,6 @@ class LaporanSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('laporans')->insert([
-            [
-                'tanggal' => now()->format('Y-m-d'),
-                'lokasi' => 'Andir',
-                'jenis_sampah' => 'Organik',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            // Tambahkan data lainnya sesuai kebutuhan
-        ]);
+       
     }
 }

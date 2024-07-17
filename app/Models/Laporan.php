@@ -11,7 +11,8 @@ class Laporan extends Model
 
     protected $fillable = [
         'tanggal',
-        'lokasi',
+     
+        'iframe',
         'jenis_sampah'
     ];
 }

@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('laporans', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
-            $table->string('lokasi');
+         
+            $table->longtext('iframe')->default(0);
             $table->string('jenis_sampah');
             $table->timestamps();
         });

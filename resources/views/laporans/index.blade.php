@@ -20,7 +20,7 @@
                     @foreach ($laporans as $laporan)
                         <tr>
                             <td>{{ $laporan->tanggal }}</td>
-                            <td>{{ $laporan->lokasi }}</td>
+                            <td>{!! $laporan->iframe !!}</td>
                             <td>{{ $laporan->jenis_sampah }}</td>
                             <td>
                                 <a href="{{ route('laporans.edit', $laporan->id) }}" class="btn btn-warning btn-sm">Edit</a>

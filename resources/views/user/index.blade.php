@@ -23,7 +23,7 @@
                     <tr>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->role }}</td>
+                        <td>{{ $user->roles->role }}</td>
                         <td>
                             <a href="{{ url('user/' . $user->id . '/edit') }}" class="btn btn-secondary btn-sm">Edit</a>
                             <form action="{{ route('user.destroy', $user->id) }}" method="POST" style="display:inline;">

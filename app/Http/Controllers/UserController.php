@@ -36,6 +36,7 @@ class UserController extends Controller
         $user->email = $validatedData['email'];
         $user->password = Hash::make($validatedData['password']);
         $user->role_id = $validatedData['role']; // Asumsi role_id adalah foreign key di tabel users
+       
         $user->save();
 
         return redirect()->route('user.index')->with('success', 'User berhasil ditambahkan.');
