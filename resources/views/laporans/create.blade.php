@@ -14,8 +14,8 @@
                         <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{ now()->format('Y-m-d') }}" readonly>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="jenis_sampah" class="form-label">Lokasi:</label>
-                        <input type="text" name="iframe" class="form-control">
+                        <label for="iframe" class="form-label">Lokasi:</label>
+                        <input type="text" name="iframe" class="form-control" id="iframe">
                     </div>
                     <div class="form-group mb-3">
                         <label for="jenis_sampah" class="form-label">Jenis Sampah:</label>
@@ -27,7 +27,13 @@
                             <option value="Beracun">Beracun (B3)</option>
                         </select>
                     </div>
+                    <div class="form-group mb-3">
+                        <label for="deskripsi" class="form-label">Deskripsi:</label>
+                        <input type="text" class="form-control" id="deskripsi" name="deskripsi">
+                    </div>
+
                     
+
                     <div class="form-group mt-4">
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>

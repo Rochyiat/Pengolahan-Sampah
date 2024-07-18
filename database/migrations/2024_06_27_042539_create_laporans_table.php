@@ -17,6 +17,7 @@ return new class extends Migration
          
             $table->longtext('iframe')->default(0);
             $table->string('jenis_sampah');
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }

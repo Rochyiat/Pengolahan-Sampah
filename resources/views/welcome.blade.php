@@ -7,7 +7,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Aku Sampah Bandung</title>
-  <meta content="" name="Aku Sampah Bandung adalah projek UAS kelompok 6 di mata kuliah Pemograman Web II. Tujuan dari website ini adalah untuk merekam laporan sampah yang ada di Bandung di setiap kecamatannya">
+  <meta content="" name="Aku Sampah Bandung adalah projek UAS kelompok 1 di mata kuliah Pemograman Web II. Tujuan dari website ini adalah untuk merekam laporan sampah yang ada di Bandung di setiap kecamatannya">
   <meta content="" name="sampah bandung, aku sampah bandung, sampah di bandung, bandung sampah,">
 
   <!-- Favicons -->
@@ -631,7 +631,7 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">Bahan kimia rumah tangga berbahaya</a></h4>
+                <h4><a href="portfolio-details.html">Bahan kimia rumah tangga</a></h4>
                 <p style="color: red">B3</p>
               </div>
             </div>
@@ -642,6 +642,23 @@
 
       </div>
     </section><!-- End Portfolio Section -->
+
+
+
+
+    {{-- <section id="testimonials" class="testimonials section-bg">
+      <div class="section-title">
+          <h2>Lapor Sampah</h2>
+          <p>Laporan Sampah pada Bulan Juli:</p>
+          <br>
+          <br>
+          @component('components.laporan-table', ['laporans' => $laporans])
+          @endcomponent
+      </div>
+  </section> --}}
+
+
+
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">

@@ -34,17 +34,18 @@ class LaporanController extends Controller
     {
         $request->validate([
             'tanggal' => 'required|date',
-           
-            'iframe' => 'required|',
+            'iframe' => 'required',
             'jenis_sampah' => 'required|string|max:255',
+            'deskripsi' => 'nullable|string|max:255', // Pastikan deskripsi bisa nullable
         ]);
 
         Laporan::create([
             'tanggal' => $request->tanggal,
-           
             'iframe' => $request->iframe,
             'jenis_sampah' => $request->jenis_sampah,
+            'deskripsi' => $request->deskripsi, // Pastikan deskripsi diikutsertakan
         ]);
+    
 
         return redirect()->route('laporans.index')->with('success', 'Laporan berhasil ditambahkan.');
     }
@@ -75,14 +76,16 @@ class LaporanController extends Controller
     {
         $request->validate([
             'tanggal' => 'required|date',
-            'iframe' => 'required|',
+            'iframe' => 'required|string',
             'jenis_sampah' => 'required|string|max:255',
+            'deskripsi' => 'required|string', // tambahkan validasi untuk deskripsi
         ]);
 
         $laporan->update([
             'tanggal' => $request->tanggal,
             'iframe' => $request->iframe,
             'jenis_sampah' => $request->jenis_sampah,
+            'deskripsi' => $request->deskripsi, // tambahkan deskripsi ke penyimpanan data
         ]);
 
         return redirect()->route('laporans.index')->with('success', 'Laporan berhasil diperbarui.');

@@ -15,8 +15,8 @@
                         <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{ $laporan->tanggal }}" readonly>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="jenis_sampah" class="form-label">Lokasi:</label>
-                        <input type="text" name="iframe" class="form-control">
+                        <label for="iframe" class="form-label">Lokasi:</label>
+                        <input type="text" name="iframe" class="form-control" value="{{ $laporan->iframe }}">
                     </div>
                     <div class="form-group mb-3">
                         <label for="jenis_sampah" class="form-label">Jenis Sampah:</label>
@@ -28,8 +28,12 @@
                             <option value="Beracun" {{ $laporan->jenis_sampah == 'Beracun' ? 'selected' : '' }}>Beracun (B3)</option>
                         </select>
                     </div>
+                    <div class="form-group mb-3">
+                        <label for="deskripsi" class="form-label">Deskripsi:</label>
+                        <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ $laporan->deskripsi }}">
+                    </div>
                     <div class="form-group mt-4">
-                        <button type="submit" class="btn btn-primary">Perbarui</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>

@@ -13,6 +13,7 @@
                         <th scope="col">Tanggal</th>
                         <th scope="col">Lokasi</th>
                         <th scope="col">Jenis Sampah</th>
+                        <th scope="col">Deskripsi</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -22,6 +23,7 @@
                             <td>{{ $laporan->tanggal }}</td>
                             <td>{!! $laporan->iframe !!}</td>
                             <td>{{ $laporan->jenis_sampah }}</td>
+                            <td>{{ $laporan->deskripsi }}</td>
                             <td>
                                 <a href="{{ route('laporans.edit', $laporan->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{ route('laporans.destroy', $laporan->id) }}" method="POST" class="d-inline-block">
